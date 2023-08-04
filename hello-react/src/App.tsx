@@ -1,5 +1,5 @@
 import React from "react";
-import {Taskcard1,Taskcard2} from "./TaskCard";
+import Taskcard from "./TaskCard";
 
 function App() {
   return (
@@ -12,17 +12,17 @@ function App() {
         <div className="flex justify-center">
           <div className="flex-1 w-36 px-10 border-2 rounded-xl border-grey-900 p-5 ml-32">
             <h1 className="text-2xl font-bold text-center pb-5">pending</h1>
-            <Taskcard1
+            <Taskcard
               title="Build the website with static content"
               dueDate="10th April"
-              assigneeName="Rohit S"
+              assigneeName="Saketh"
             />
             <button className="bg-gray-200 px-5 rounded-md">+ New Task</button>
           </div>
 
           <div className="flex-1 w-36 px-10 border-2 rounded-xl border-grey-900 p-5 ml-14 mr-32">
             <h1 className="text-2xl font-bold bold text-center pb-5">done</h1>
-            <Taskcard2
+            <Taskcard
               title="Play cricket"
               completedAtDate="10th July"
               assigneeName="Rohit S"
