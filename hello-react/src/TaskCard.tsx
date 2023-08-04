@@ -13,32 +13,30 @@ interface Taskcard2Props {
   assigneeName: string;
 }
 
-const Taskcard1: React.FC<Taskcard1Props> = (props) => {
-  const { title, dueDate, assigneeName } = props;
-
+const Taskcard1=(props:Taskcard1Props)=>{ 
   return (
     <div>
       <div className="TaskItem">
-        <h2 className="text-xl font-bold">{title}</h2>
-        <p>Due on: {dueDate}</p>
-        <p>Assignee: {assigneeName}</p>
+        <h2 className="text-xl font-bold">{props.title}</h2>
+        <p>Due on: {props.dueDate}</p>
+        <p>Assignee: {props.assigneeName}</p>
       </div>
     </div>
-  );
-};
+  );}
 
-const Taskcard2: React.FC<Taskcard2Props> = (props) => {
-  const { title, completedAtDate, assigneeName } = props;
+ 
 
-  return (
+const Taskcard2=(props:Taskcard2Props)=>{ return (
     <div >
       <div className="TaskItem">
-        <h2 className="text-xl font-bold">{title}</h2>
-        <p>Completed on: {completedAtDate}</p>
-        <p>Assignee: {assigneeName}</p>
+        <h2 className="text-xl font-bold">{props.title}</h2>
+        <p>Completed on: {props.completedAtDate}</p>
+        <p>Assignee: {props.assigneeName}</p>
       </div>
     </div>
-  );
-};
+  );}
+
+ 
+
 
 export { Taskcard1, Taskcard2 };
