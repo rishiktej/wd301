@@ -46,10 +46,10 @@ descriptionChanged:React.ChangeEventHandler<HTMLInputElement> = (event) => {
    render(){
     return (
       <form onSubmit={this.addTask}>
-        <input required placeholder="Title" type="text" value={this.state.todoTitle} onChange={this.titleChanged}/><br></br>
-        <input required placeholder="DueDate"type="text" value={this.state.todoDueDate} onChange={this.duedateChanged}/><br></br>
-        <input placeholder="todoDescription"type="text" value={this.state.todoDescription} onChange={this.descriptionChanged}/><br></br>
-        <button type="submit">Add item</button>
+        <input required placeholder="Title" id="todoTitle" type="text" value={this.state.todoTitle} onChange={this.titleChanged}/><br></br>
+        <input required placeholder="DueDate" id="todoDueDate" type="text" value={this.state.todoDueDate} onChange={this.duedateChanged}/><br></br>
+        <input placeholder="todoDescription" id="todoDescription" type="text" value={this.state.todoDescription} onChange={this.descriptionChanged}/><br></br>
+        <button type="submit" id="addTaskButton">Add item</button>
       </form>
     )
   }
