@@ -3,3 +3,6 @@ node_modules
 =======
 
 >>>>>>> origin/main
+
+# Local Netlify folder
+.netlify
