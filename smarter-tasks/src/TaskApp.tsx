@@ -39,7 +39,6 @@ const TaskApp = () => {
           </h1>
           <TaskForm addTask={addTask} />
           <TaskList tasks={taskAppState.tasks} removeTask={removeTask} />
-          <Task taskListLength={taskAppState.tasks.length} />
         </div>
       </div>
     </div>
