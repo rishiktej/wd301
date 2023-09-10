@@ -1,7 +1,6 @@
 import { TaskItem } from "./types";
 import TaskForm from "./TaskForm";
 import TaskList from "./TaskList";
-import Task from "./Task";
 import { useLocalStorage } from "./hooks/useLocalStorage";
 
 interface TaskAppState {

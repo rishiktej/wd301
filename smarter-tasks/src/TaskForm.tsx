@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { TaskItem } from "./types";
 
 interface TaskFormProps {
@@ -6,7 +6,6 @@ interface TaskFormProps {
 }
 
 interface TaskFormState {
-  id: string;
   todoTitle: string;
   todoDescription: string;
   todoDueDate: string;
@@ -14,11 +13,12 @@ interface TaskFormState {
 
 const TaskForm = (props: TaskFormProps) => {
   const [formState, setFormState] = React.useState<TaskFormState>({
-    id: "",
     todoTitle: "",
     todoDescription: "",
     todoDueDate: "",
   });
+
+  const [taskIdCounter, setTaskIdCounter] = useState(Date.now());
 
   const titleChanged: React.ChangeEventHandler<HTMLInputElement> = (event) => {
     setFormState({ ...formState, todoTitle: event.target.value });
@@ -35,15 +35,22 @@ const TaskForm = (props: TaskFormProps) => {
   ) => {
     setFormState({ ...formState, todoDescription: event.target.value });
   };
-
   const addTask: React.FormEventHandler<HTMLFormElement> = (event) => {
     event.preventDefault();
     if (!formState.todoTitle || !formState.todoDueDate) {
       return;
     }
-    props.addTask(formState);
+    const newTask: TaskItem = {
+      id: taskIdCounter.toString(),
+      todoTitle: formState.todoTitle,
+      todoDueDate: formState.todoDueDate,
+      todoDescription: formState.todoDescription,
+    };
+
+    props.addTask(newTask);
+
+    setTaskIdCounter(taskIdCounter + 1);
     setFormState({
-      id: "",
       todoTitle: "",
       todoDueDate: "",
       todoDescription: "",
