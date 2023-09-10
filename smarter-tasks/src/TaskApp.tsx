@@ -1,6 +1,7 @@
 import { TaskItem } from "./types";
 import TaskForm from "./TaskForm";
 import TaskList from "./TaskList";
+import Task from "./Task";
 import { useLocalStorage } from "./hooks/useLocalStorage";
 
 interface TaskAppState {
@@ -38,6 +39,7 @@ const TaskApp = () => {
           </h1>
           <TaskForm addTask={addTask} />
           <TaskList tasks={taskAppState.tasks} removeTask={removeTask} />
+          <Task taskListLength={taskAppState.tasks.length} />
         </div>
       </div>
     </div>

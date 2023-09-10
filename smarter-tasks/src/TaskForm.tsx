@@ -43,7 +43,7 @@ const TaskForm = (props: TaskFormProps) => {
     }
     props.addTask(formState);
     setFormState({
-      id: formState.id,
+      id: "",
       todoTitle: "",
       todoDueDate: "",
       todoDescription: "",
