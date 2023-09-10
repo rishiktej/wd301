@@ -17,7 +17,7 @@ const TaskApp = () => {
     setTaskAppState({ tasks: [...taskAppState.tasks, task] });
   };
 
-  const removeTask = (taskId: number) => {
+  const removeTask = (taskId: string) => {
     const updatedTasks = taskAppState.tasks.filter(
       (task) => task.id !== taskId
     );

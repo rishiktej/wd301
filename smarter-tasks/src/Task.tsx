@@ -1,26 +1,34 @@
-interface TaskProp {
-  id: number;
-  todoTitle: string;
-  todoDueDate: string;
-  todoDescription: string;
-  removeTask: (taskId: number) => void;
-}
+import "./TaskCard.css";
+import { TaskItem } from "./types";
 
-const Task = (props: TaskProp) => {
+interface TaskProps {
+  item: TaskItem;
+  removeTask: (task: TaskItem) => void;
+}
+const Task = (props: TaskProps) => {
+  const { item, removeTask } = props;
   return (
     <div className="TaskItem shadow-md border border-slate-100">
-      <h2 className="text-base font-bold my-1">{props.todoTitle}</h2>
-      <p className="text-sm text-slate-500">{props.todoDueDate}</p>
-      <p className="text-sm text-slate-500">
-        Description: {props.todoDescription}
-      </p>
-      <button
-        className="deleteTaskButton"
-        onClick={() => props.removeTask(props.id)}
-      >
-        Delete
-      </button>
+      <div className="sm:ml-4 sm:flex sm:w-full sm:justify-between">
+        <div>
+          <a href={`/tasks/${item.id || ""}`}>
+            <h2 className="text-base font-bold my-1">{item.todoTitle}</h2>
+          </a>
+          <p className="text-sm text-slate-500">{item.todoDueDate}</p>
+          <p className="text-sm text-slate-500">
+            Description: {item.todoDescription}
+          </p>
+        </div>
+
+        <button
+          className="deleteTaskButton cursor-pointer flex items-center justify-center h-4 w-4 rounded-full my-5 mr-5"
+          onClick={() => removeTask(item)}
+        >
+          X
+        </button>
+      </div>
     </div>
   );
 };
+
 export default Task;

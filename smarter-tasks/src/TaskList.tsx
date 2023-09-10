@@ -2,7 +2,7 @@ import Task from "./Task";
 import { TaskItem } from "./types";
 interface Props {
   tasks: TaskItem[];
-  removeTask: (taskId: number) => void;
+  removeTask: (taskId: string) => void;
 }
 const TaskList = (props: Props) => {
   return (

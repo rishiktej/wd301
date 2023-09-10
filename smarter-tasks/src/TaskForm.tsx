@@ -6,7 +6,7 @@ interface TaskFormProps {
 }
 
 interface TaskFormState {
-  id:number;
+  id: string;
   todoTitle: string;
   todoDescription: string;
   todoDueDate: string;
@@ -14,7 +14,7 @@ interface TaskFormState {
 
 const TaskForm = (props: TaskFormProps) => {
   const [formState, setFormState] = React.useState<TaskFormState>({
-    id:0,
+    id: "",
     todoTitle: "",
     todoDescription: "",
     todoDueDate: "",
@@ -24,11 +24,15 @@ const TaskForm = (props: TaskFormProps) => {
     setFormState({ ...formState, todoTitle: event.target.value });
   };
 
-  const DueDateChanged: React.ChangeEventHandler<HTMLInputElement> = (event) => {
+  const DueDateChanged: React.ChangeEventHandler<HTMLInputElement> = (
+    event
+  ) => {
     setFormState({ ...formState, todoDueDate: event.target.value });
   };
 
-  const DescriptionChanged: React.ChangeEventHandler<HTMLInputElement> = (event) => {
+  const DescriptionChanged: React.ChangeEventHandler<HTMLInputElement> = (
+    event
+  ) => {
     setFormState({ ...formState, todoDescription: event.target.value });
   };
 
@@ -38,7 +42,12 @@ const TaskForm = (props: TaskFormProps) => {
       return;
     }
     props.addTask(formState);
-    setFormState({ id: formState.id + 1,todoTitle: "", todoDueDate: "", todoDescription: "" });
+    setFormState({
+      id: formState.id,
+      todoTitle: "",
+      todoDueDate: "",
+      todoDescription: "",
+    });
   };
 
   return (
