@@ -21,7 +21,7 @@ const TaskForm = (props: TaskFormProps) => {
   const [taskIdCounter, setTaskIdCounter] = useState(Date.now());
 
   const titleChanged: React.ChangeEventHandler<HTMLInputElement> = (event) => {
-    setFormState({ ...formState, todoTitle: event.target.value.trim() });
+    setFormState({ ...formState, todoTitle: event.target.value });
   };
 
   const DueDateChanged: React.ChangeEventHandler<HTMLInputElement> = (
@@ -33,7 +33,7 @@ const TaskForm = (props: TaskFormProps) => {
   const DescriptionChanged: React.ChangeEventHandler<HTMLInputElement> = (
     event
   ) => {
-    setFormState({ ...formState, todoDescription: event.target.value.trim() });
+    setFormState({ ...formState, todoDescription: event.target.value });
   };
   const addTask: React.FormEventHandler<HTMLFormElement> = (event) => {
     event.preventDefault();
@@ -42,9 +42,9 @@ const TaskForm = (props: TaskFormProps) => {
     }
     const newTask: TaskItem = {
       id: taskIdCounter.toString(),
-      todoTitle: formState.todoTitle,
+      todoTitle: formState.todoTitle.trim(),
       todoDueDate: formState.todoDueDate,
-      todoDescription: formState.todoDescription,
+      todoDescription: formState.todoDescription.trim(),
     };
 
     props.addTask(newTask);
