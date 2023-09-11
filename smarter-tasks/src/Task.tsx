@@ -13,7 +13,7 @@ const Task = (props: TaskProps) => {
     <div className="TaskItem shadow-md border border-slate-100">
       <div className="sm:ml-4 sm:flex sm:w-full sm:justify-between">
         <div>
-          <a href={`/tasks/${id}`}>
+          <a href={`/tasks/${id || ""}`}>
             <h2 className="text-base font-bold my-1">{todoTitle}</h2>
           </a>
           <p className="text-sm text-slate-500">{todoDueDate}</p>
