@@ -38,9 +38,9 @@ const Dashboard: React.FC = () => {
           <div>
             <p>Name: {user.name}</p>
             <p>Email: {user.email}</p>
-            <button id="logout-button" onClick={Handlelogout}>
+            <a id="logout-link" href="#" onClick={Handlelogout}>
               Logout
-            </button>
+            </a>
           </div>
         ) : (
           <p>Loading user data...</p>
