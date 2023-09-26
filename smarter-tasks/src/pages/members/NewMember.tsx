@@ -49,6 +49,7 @@ const NewMember = () => {
     <>
       <button
         type="button"
+        id="new-member-btn"
         onClick={openModal}
         className="rounded-md bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-opacity-95 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
       >
@@ -90,6 +91,7 @@ const NewMember = () => {
                       {error && <span>{error}</span>}
                       <input
                         type="text"
+                        id="name"
                         placeholder="Enter name..."
                         autoFocus
                         {...register("name", { required: true })}
@@ -100,6 +102,7 @@ const NewMember = () => {
                       {errors.name && <span>Name is required</span>}
                       <input
                         type="email"
+                        id="email"
                         placeholder="Enter email..."
                         {...register("email", { required: true })}
                         className={`w-full border rounded-md py-2 px-3 my-4 text-gray-700 leading-tight focus:outline-none focus:border-blue-500 focus:shadow-outline-blue ${
@@ -109,6 +112,7 @@ const NewMember = () => {
                       {errors.email && <span>Email is required</span>}
                       <input
                         type="password"
+                        id="password"
                         placeholder="Enter password..."
                         {...register("password", { required: true })}
                         className={`w-full border rounded-md py-2 px-3 my-4 text-gray-700 leading-tight focus:outline-none focus:border-blue-500 focus:shadow-outline-blue ${
@@ -118,6 +122,7 @@ const NewMember = () => {
                       {errors.password && <span>Password is required</span>}
                       <button
                         type="submit"
+                        id="create-member-btn"
                         className="inline-flex justify-center rounded-md border border-transparent bg-blue-600 px-4 py-2 mr-2 text-sm font-medium text-white hover:bg-blue-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
                       >
                         Submit
