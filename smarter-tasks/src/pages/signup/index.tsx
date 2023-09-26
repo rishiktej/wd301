@@ -1,7 +1,7 @@
 import React from "react";
-import SignupForm from "./SignupForm";
+import Signup from "./SignupForm";
 
-const Signup: React.FC = () => {
+const signup: React.FC = () => {
   // And use it after the h2 tag
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
@@ -9,9 +9,9 @@ const Signup: React.FC = () => {
         <h1 className="text-3xl font-bold text-center text-gray-800 mb-8">
           Sign up
         </h1>
-        <SignupForm />
+        <Signup />
       </div>
     </div>
   );
 };
-export default Signup;
+export default signup;

@@ -1,8 +1,8 @@
 import React from "react";
 // Just import the file
-import SigninForm from "./SigninForm";
+import Signin from "./SigninForm";
 
-const Signin: React.FC = () => {
+const signin: React.FC = () => {
   // And use it after the h1 tag
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
@@ -10,9 +10,9 @@ const Signin: React.FC = () => {
         <h1 className="text-3xl font-bold text-center text-gray-800 mb-8">
           Sign in
         </h1>
-        <SigninForm />
+        <Signin />
       </div>
     </div>
   );
 };
-export default Signin;
+export default signin;
