@@ -1,4 +1,4 @@
-import Members from "../../pages/members";
+import Member from "../../pages/members";
 
 export interface Member {
   id: number;
