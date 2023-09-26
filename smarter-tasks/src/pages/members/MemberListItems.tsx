@@ -5,6 +5,9 @@ import {
   useMembersState,
 } from "../../context/members/context";
 
+type Input = {
+  id: number;
+};
 export default function MemberListItems() {
   // Access the members' state using the useMembersState hook.
   let state: any = useMembersState();
@@ -22,7 +25,7 @@ export default function MemberListItems() {
     return <span>{errorMessage}</span>;
   }
 
-  const onSubmit: SubmitHandler<Inputs> = async (Id) => {
+  const onSubmit: SubmitHandler<Input> = async (Id) => {
     const { id } = Id;
     const response = await deleteMember(dispatchMembers, id);
     if (response.ok) {
