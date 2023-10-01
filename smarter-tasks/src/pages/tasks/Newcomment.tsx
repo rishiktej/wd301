@@ -97,7 +97,7 @@ const NewComment = () => {
           </form>
         </div>
       )}
-      <div className="comment mt-8">
+      <div className="mt-8">
         <h3 className="text-xl font-semibold mb-4">Comments</h3>
         {isLoading ? (
           <p>Loading comments...</p>
