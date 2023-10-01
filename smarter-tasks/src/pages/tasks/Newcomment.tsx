@@ -107,7 +107,7 @@ const NewComment = () => {
         ) : (
           <ul>
             {sortedComments.map((comment, index) => (
-              <li key={index}>
+              <li key={index} className="comment">
                 <p>
                   <strong>User:</strong> {comment.User.name}
                 </p>
