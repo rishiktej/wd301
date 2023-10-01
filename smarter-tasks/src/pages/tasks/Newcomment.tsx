@@ -28,6 +28,12 @@ const NewComment = () => {
   useEffect(() => {
     fetchComments(commentDispatch, projectID ?? "", parseInt(taskID ?? ""));
   }, [commentDispatch, projectID, taskID]);
+
+  // Sort comments in reverse chronological order
+  const sortedComments = commentsData.slice().sort((a, b) => {
+    return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();
+  });
+
   function closeModal() {
     setIsOpen(false);
     navigate("../../");
@@ -92,7 +98,7 @@ const NewComment = () => {
           </form>
         </div>
       )}
-      <div className=" comment mt-8">
+      <div className="comment mt-8">
         <h3 className="text-xl font-semibold mb-4">Comments</h3>
         {isLoading ? (
           <p>Loading comments...</p>
@@ -100,7 +106,7 @@ const NewComment = () => {
           <p>Error: {errorMessage}</p>
         ) : (
           <ul>
-            {commentsData.map((comment, index) => (
+            {sortedComments.map((comment, index) => (
               <li key={index}>
                 <p>
                   <strong>User:</strong> {comment.User.name}
