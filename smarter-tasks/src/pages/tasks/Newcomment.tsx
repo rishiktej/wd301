@@ -49,7 +49,6 @@ const NewComment = () => {
         taskID ?? "",
         description
       );
-      closeModal();
     } catch (error) {
       console.error("Operation failed:", error);
     }
