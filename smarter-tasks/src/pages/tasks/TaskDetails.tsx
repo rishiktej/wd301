@@ -1,5 +1,3 @@
-/* eslint-disable prefer-const */
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { Dialog, Transition, Listbox } from "@headlessui/react";
 import CheckIcon from "@heroicons/react/24/outline/CheckIcon";
 import { Fragment, useState } from "react";
@@ -28,10 +26,10 @@ const formatDateForPicker = (isoDate: string) => {
 };
 
 const TaskDetails = () => {
-  let [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(true);
 
-  let { projectID, taskID } = useParams();
-  let navigate = useNavigate();
+  const { projectID, taskID } = useParams();
+  const navigate = useNavigate();
 
   // Extract project and task details.
   const memberState = useMembersState();
@@ -51,6 +49,7 @@ const TaskDetails = () => {
   const {
     register,
     handleSubmit,
+    // eslint-disable-next-line no-empty-pattern
     formState: {},
   } = useForm<TaskFormUpdatePayload>({
     defaultValues: {

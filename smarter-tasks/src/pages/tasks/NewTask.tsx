@@ -1,4 +1,3 @@
-/* eslint-disable prefer-const */
 import { Dialog, Transition } from "@headlessui/react";
 import { Fragment, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
@@ -9,15 +8,15 @@ import { addTask } from "../../context/task/actions";
 import { TaskDetailsPayload } from "../../context/task/types";
 
 const NewTask = () => {
-  let [isOpen, setIsOpen] = useState(true);
-  let { projectID } = useParams();
-  let navigate = useNavigate();
+  const [isOpen, setIsOpen] = useState(true);
+  const { projectID } = useParams();
+  const navigate = useNavigate();
 
   // Use react-hook-form to create form submission handler and state.
   const {
     register,
     handleSubmit,
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    // eslint-disable-next-line no-empty-pattern
     formState: {},
   } = useForm<TaskDetailsPayload>();
   const projectState = useProjectsState();
