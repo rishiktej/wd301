@@ -2,7 +2,7 @@ import { Reducer } from "react";
 import {  CommentsActions, CommentsListAvailableAction, CommentsListState} from "./types";
 
 export const initialState: CommentsListState = {
-  comments: [],
+  commentsData: [],
   isLoading: false,
   isError: false,
   errorMessage: "",

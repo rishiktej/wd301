@@ -15,7 +15,7 @@ export type Comment = {
 export type CommentsData = Comment;
 export type CommentDetailsPayload = Omit<Comment, "id" | "createdAt" | "owner" | "taskID" | "user" | "state">;
 export type CommentsListState = {
-    comments: CommentsData[];
+    commentsData: CommentsData[];
     isLoading: boolean;
     isError: boolean;
     errorMessage: string;
