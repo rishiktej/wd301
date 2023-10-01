@@ -1,3 +1,4 @@
+/* eslint-disable prefer-const */
 import { Dialog, Transition } from "@headlessui/react";
 import { Fragment, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
@@ -9,7 +10,6 @@ import { TaskDetailsPayload } from "../../context/task/types";
 
 const NewTask = () => {
   let [isOpen, setIsOpen] = useState(true);
-  console.log("hello......");
   let { projectID } = useParams();
   let navigate = useNavigate();
 
@@ -17,6 +17,7 @@ const NewTask = () => {
   const {
     register,
     handleSubmit,
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     formState: { errors },
   } = useForm<TaskDetailsPayload>();
   const projectState = useProjectsState();

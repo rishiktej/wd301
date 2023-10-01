@@ -59,7 +59,12 @@ const Task = forwardRef<
   );
 });
 
-const Container = (props) => {
+type ContainerProps = {
+  task: TaskDetails;
+  index: number;
+};
+
+const Container: React.FC<ContainerProps> = (props) => {
   return (
     <Draggable index={props.index} draggableId={`${props.task.id}`}>
       {(provided) => (

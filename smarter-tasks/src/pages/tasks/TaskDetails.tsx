@@ -1,3 +1,5 @@
+/* eslint-disable prefer-const */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { Dialog, Transition, Listbox } from "@headlessui/react";
 import CheckIcon from "@heroicons/react/24/outline/CheckIcon";
 import { Fragment, useState } from "react";

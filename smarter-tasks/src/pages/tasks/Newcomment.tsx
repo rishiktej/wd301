@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable prefer-const */
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { useForm, SubmitHandler } from "react-hook-form"; // Import the comment-related function
@@ -25,7 +27,6 @@ const NewComment = () => {
   const commentState = useCommentsState();
 
   const { commentsData, isLoading, isError, errorMessage } = commentState;
-  console.log("...", commentState);
   useEffect(() => {
     fetchComments(commentDispatch, projectID ?? "", parseInt(taskID ?? ""));
   }, [commentDispatch, projectID, taskID]);
@@ -38,7 +39,6 @@ const NewComment = () => {
     try {
       const { description } = data;
 
-      // Call the createComment function to add the comment
       createComment(
         commentDispatch,
         projectID ?? "",

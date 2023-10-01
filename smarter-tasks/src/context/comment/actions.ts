@@ -1,6 +1,5 @@
 import { API_ENDPOINT } from "../../config/constants";
 import {
-  CommentDetailsPayload,
   CommentsListAvailableAction,
   CommentsDispatch,
 } from "./types";
@@ -10,10 +9,10 @@ export const createComment = async (
   dispatch: CommentsDispatch,
   projectID: string,
   taskID: string, // Change this to string if it's expected as a string
-  Comment: CommentDetailsPayload,
+  Comment: string,
 ) => {
   const token = localStorage.getItem("authToken") ?? "";
-  console.log(Comment)
+  console.log("...c",Comment)
   try {
     dispatch({ type: CommentsListAvailableAction.CREATE_COMMENTS_REQUEST });
     const response = await fetch(
@@ -27,7 +26,7 @@ export const createComment = async (
         body: JSON.stringify({description:Comment}),
       }
     );
-
+     console.log("res",response)
     if (!response.ok) {
       throw  Error("Failed to create comment");
     }
