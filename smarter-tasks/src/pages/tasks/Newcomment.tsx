@@ -112,10 +112,12 @@ const NewComment = () => {
                   <strong>User:</strong> {comment.User.name}
                 </p>
                 <p>
-                  <strong>Description:</strong> {comment.description}
+                  <strong>Created At:</strong>{" "}
+                  {new Date(comment.createdAt).toLocaleString()}{" "}
+                  {/* Format timestamp */}
                 </p>
                 <p>
-                  <strong>Created At:</strong> {comment.createdAt}
+                  <strong>Description:</strong> {comment.description}
                 </p>
               </li>
             ))}
