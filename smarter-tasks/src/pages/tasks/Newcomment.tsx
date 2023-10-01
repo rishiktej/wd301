@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable prefer-const */
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { useForm, SubmitHandler } from "react-hook-form"; // Import the comment-related function
@@ -12,10 +10,10 @@ import { createComment, fetchComments } from "../../context/comment/actions";
 
 const NewComment = () => {
   console.log("hello");
-  let [setIsOpen] = useState(true);
-  let { projectID, taskID } = useParams();
+  const [isOpen, setIsOpen] = useState(true);
+  const { projectID, taskID } = useParams();
 
-  let navigate = useNavigate();
+  const navigate = useNavigate();
 
   // Use react-hook-form to create form submission handler and state.
   const {
@@ -53,43 +51,47 @@ const NewComment = () => {
 
   return (
     <>
-      <div className="mt-4">
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <div className="mb-4">
-            <label
-              htmlFor="description"
-              className="block text-gray-700 text-sm font-bold mb-2"
-            >
-              Comment
-            </label>
-            <textarea
-              id="commentBox"
-              {...register("description", { required: true })}
-              className="w-full px-3 py-2 text-gray-700 border rounded-md focus:outline-none focus:border-blue-500"
-              placeholder="Enter your comment..."
-            ></textarea>
-            {errors.description && (
-              <p className="text-red-500 text-xs mt-1">Comment is required.</p>
-            )}
-          </div>
-          <div className="mt-4 flex justify-end">
-            <button
-              type="submit"
-              id="addCommentBtn"
-              className="bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-500 focus:outline-none focus:bg-blue-500"
-            >
-              Add Comment
-            </button>
-            <button
-              type="button"
-              onClick={closeModal}
-              className="ml-2 bg-gray-200 text-gray-700 py-2 px-4 rounded-md hover:bg-gray-300 focus:outline-none focus:bg-gray-300"
-            >
-              Cancel
-            </button>
-          </div>
-        </form>
-      </div>
+      {isOpen && (
+        <div className="mt-4">
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <div className="mb-4">
+              <label
+                htmlFor="description"
+                className="block text-gray-700 text-sm font-bold mb-2"
+              >
+                Comment
+              </label>
+              <textarea
+                id="commentBox"
+                {...register("description", { required: true })}
+                className="w-full px-3 py-2 text-gray-700 border rounded-md focus:outline-none focus:border-blue-500"
+                placeholder="Enter your comment..."
+              ></textarea>
+              {errors.description && (
+                <p className="text-red-500 text-xs mt-1">
+                  Comment is required.
+                </p>
+              )}
+            </div>
+            <div className="mt-4 flex justify-end">
+              <button
+                type="submit"
+                id="addCommentBtn"
+                className="bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-500 focus:outline-none focus:bg-blue-500"
+              >
+                Add Comment
+              </button>
+              <button
+                type="button"
+                onClick={closeModal}
+                className="ml-2 bg-gray-200 text-gray-700 py-2 px-4 rounded-md hover:bg-gray-300 focus:outline-none focus:bg-gray-300"
+              >
+                Cancel
+              </button>
+            </div>
+          </form>
+        </div>
+      )}
       <div className=" comment mt-8">
         <h3 className="text-xl font-semibold mb-4">Comments</h3>
         {isLoading ? (
