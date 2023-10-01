@@ -18,7 +18,7 @@ const NewTask = () => {
     register,
     handleSubmit,
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    formState: { errors },
+    formState: {},
   } = useForm<TaskDetailsPayload>();
   const projectState = useProjectsState();
   const taskDispatch = useTasksDispatch();

@@ -12,7 +12,7 @@ import { createComment, fetchComments } from "../../context/comment/actions";
 
 const NewComment = () => {
   console.log("hello");
-  let [isOpen, setIsOpen] = useState(true);
+  let [setIsOpen] = useState(true);
   let { projectID, taskID } = useParams();
 
   let navigate = useNavigate();
