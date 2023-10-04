@@ -8,7 +8,7 @@ import { updateTask } from "../../context/task/actions";
 import { useMembersState } from "../../context/members/context";
 import { useProjectsState } from "../../context/projects/context";
 import { TaskDetailsPayload } from "../../context/task/types";
-import NewComment from "./Newcomment";
+import NewComment from "./Comment";
 
 type TaskFormUpdatePayload = TaskDetailsPayload & {
   selectedPerson: string;
